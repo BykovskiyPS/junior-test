@@ -1,6 +1,5 @@
 package lesson1
 
-// package lesson1
 import "testing"
 
 func TestTwoSum(t *testing.T) {

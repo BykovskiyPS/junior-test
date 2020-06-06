@@ -1,7 +1,5 @@
 package lesson1
 
-// package lesson1
-
 func twoSum(nums []int, target int) []int {
 	m := make(map[int]int) // map number in pos
 	result := [2]int{0, 0}
