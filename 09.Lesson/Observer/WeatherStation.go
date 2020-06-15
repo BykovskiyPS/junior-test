@@ -1,7 +1,7 @@
 // Observe pattern
 // Iot  system. Weather station
 
-package main
+package Observer
 
 import (
 	"fmt"
@@ -58,13 +58,6 @@ type ConcreteObserver struct {
 	WeatherStation Publisher
 }
 
-//func NewObserver(weatherStation Publisher) Observer {
-//	currentObserver := ConcreteObserver{}
-//	currentObserver.WeatherStation = weatherStation
-//	weatherStation.Attach(currentObserver)
-//	return &currentObserver
-//}
-
 func (c *ConcreteObserver) Update(temp float64, pressure float64) {
 	c.temp = temp
 	c.pressure = pressure
@@ -73,16 +66,4 @@ func (c *ConcreteObserver) Update(temp float64, pressure float64) {
 
 func (c *ConcreteObserver) Display() {
 	fmt.Println("Temperature: ", c.temp, "Pressure: ", c.pressure)
-}
-
-func main() {
-	var weather WeatherStation
-	var conditionDisplay ConcreteObserver
-
-	weather.Attach(&conditionDisplay)
-
-	weather.setMeasurements(4.4, 5.5)
-	weather.setMeasurements(6.6, 9.2)
-	weather.setMeasurements(7.7, 7.7)
-
 }
